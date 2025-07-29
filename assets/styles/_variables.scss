@@ -1,0 +1,55 @@
+@use "sass:color";
+
+// Color variables
+$color-bg: #f8f9fb;
+$color-card-bg: #fff;
+$color-primary: #00D57D;
+$color-secondary: #00D5B2;
+$color-primary-soft: color.mix(#fff, $color-primary, 90%);
+$color-secondary-soft: color.mix(#fff, $color-secondary, 90%);
+$color-surface: #fff;
+$color-accent: #82b1ff;
+$color-error: #ff5252;
+$color-error-soft: color.mix(#fff, $color-error, 95%);
+$color-info: #2196f3;
+$color-success: #4caf50;
+$color-warning: #ffc107;
+$color-shadow: 0 6px 32px 0 rgba(98, 0, 238, 0.09);
+$color-text-grey: #8d8d8d;
+$color-border: color.mix(#fff, $color-text-grey, 80%) !important;
+
+// Font family and weights
+$font-family: "Raleway", Arial, sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Typography sizes
+$text-h1: 3.4rem;
+$text-h2: 2.5rem;
+$text-h3: 2rem;
+$text-h4: 1.5rem;
+$text-h5: 1.25rem;
+$text-h6: 1rem;
+$text-body-1: 1.1rem;
+$text-body-2: 0.96rem;
+$text-subtitle-1: 1rem;
+$text-subtitle-2: 0.875rem;
+$text-button: 0.875rem;
+$text-caption: 0.75rem;
+$text-overline: 0.625rem;
+
+// Line heights
+$line-height-heading: 1.2;
+$line-height-body: 1.6;
+$line-height-tight: 1.25;
+
+// Field Variants
+$custom-field-variants: (
+  ".v-field--variant-outlined",
+  ".v-field--single-line",
+  ".v-field--no-label",
+  ".v-field--variant-solo"
+);
