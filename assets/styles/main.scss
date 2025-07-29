@@ -1,0 +1,516 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ===============================
+// CSS Custom Properties (from SCSS variables)
+// ===============================
+:root {
+  // Font Families
+  --font-family: #{$font-family};
+
+  // Font Weights
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-regular: #{$font-weight-regular};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Typography Sizes
+  --text-h1: #{$text-h1};
+  --text-h2: #{$text-h2};
+  --text-h3: #{$text-h3};
+  --text-h4: #{$text-h4};
+  --text-h5: #{$text-h5};
+  --text-h6: #{$text-h6};
+  --text-body-1: #{$text-body-1};
+  --text-body-2: #{$text-body-2};
+  --text-subtitle-1: #{$text-subtitle-1};
+  --text-subtitle-2: #{$text-subtitle-2};
+  --text-button: #{$text-button};
+  --text-caption: #{$text-caption};
+  --text-overline: #{$text-overline};
+
+  // Line Heights
+  --line-height-heading: #{$line-height-heading};
+  --line-height-body: #{$line-height-body};
+  --line-height-tight: #{$line-height-tight};
+
+  // Colors
+  --color-bg: #{$color-bg};
+  --color-card-bg: #{$color-card-bg};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-primary-soft: #{$color-primary-soft};
+  --color-secondary-soft: #{$color-secondary-soft};
+  --color-surface: #{$color-surface};
+  --color-accent: #{$color-accent};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-shadow: #{$color-shadow};
+  --color-text-grey: #{$color-text-grey};
+  --color-border: #{$color-border};
+}
+
+// ===============================
+// Base Styles & Typography
+// ===============================
+
+html,
+body,
+* {
+  font-family: var(--font-family) !important;
+}
+
+body {
+  background: var(--color-bg);
+  color: #232134;
+}
+
+.text-h1,
+.nuxtstarter-hero-title {
+  font-size: var(--text-h1);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.text-h2 {
+  font-size: var(--text-h2);
+  font-weight: 700;
+}
+
+.text-h3 {
+  font-size: var(--text-h3);
+  font-weight: 700;
+}
+
+.text-h4 {
+  font-size: var(--text-h4);
+  font-weight: 700;
+}
+
+.text-h5,
+.nuxtstarter-hero-subtitle {
+  font-size: var(--text-h5);
+}
+
+.text-body-1 {
+  font-size: var(--text-body-1);
+}
+
+.text-body-2 {
+  font-size: var(--text-body-2);
+}
+
+// ===============================
+// Bazi Chart Styles (Optimized)
+// ===============================
+
+// Base Bazi symbol
+.bazi-symbol {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+
+  &.bazi-symbol-sm,
+  &-sm {
+    font-size: 1.2rem;
+  }
+}
+
+// Pinyin styling
+.bazi-pinyin {
+  font-size: var(--text-body-2);
+  color: var(--color-text-grey);
+
+  &-sm {
+    font-size: var(--text-caption);
+    color: var(--color-text-grey);
+  }
+}
+
+.bazi-chip {
+  border-radius: 12px !important;
+}
+
+// Responsive: adjust for mobile
+@media (max-width: 900px) {
+  .bazi-symbol {
+    font-size: 1.15rem;
+
+    &.bazi-symbol-sm,
+    &-sm {
+      font-size: 1rem;
+    }
+  }
+}
+
+// ===============================
+// Utility Classes
+// ===============================
+
+.main-container {
+  max-width: 1320px !important;
+  position: relative;
+  z-index: 10;
+}
+
+.nuxtstarter-section {
+  @include section-padding;
+}
+
+.gap-4 {
+  gap: 1rem !important;
+}
+
+.gap-6 {
+  gap: 1.5rem !important;
+}
+
+.gap-8 {
+  gap: 2rem !important;
+}
+
+.nuxtstarter-soft-gradient {
+  @include soft-gradient();
+}
+
+.nuxtstarter-gradient-text {
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Custom Scrollbar (Webkit Browsers)
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f2f2fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e5f7;
+  border-radius: 7px;
+}
+
+// ===============================
+// Vuetify Overwrites & Components
+// ===============================
+.v-application {
+
+  // Primary/Secondary Backgrounds & Colors
+  .primary,
+  .bg-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+  }
+
+  .primary-soft {
+    background-color: var(--color-primary-soft) !important;
+    border-color: var(--color-primary-soft) !important;
+  }
+
+  .secondary,
+  .bg-secondary {
+    background-color: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+  }
+
+  .secondary-soft {
+    background-color: var(--color-secondary-soft) !important;
+    border-color: var(--color-secondary-soft) !important;
+  }
+
+  .text-primary {
+    color: var(--color-primary) !important;
+    caret-color: var(--color-primary) !important;
+  }
+
+  .text-secondary {
+    color: var(--color-secondary) !important;
+  }
+
+  .light-background {
+    background-color: var(--color-bg) !important;
+  }
+
+  .text-grey {
+    color: var(--color-text-grey) !important;
+  }
+
+  // Vuetify Button
+  .v-btn {
+    .v-btn__content {
+      text-transform: capitalize !important;
+    }
+
+    &[gradient],
+    &.gradient {
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      color: #fff !important;
+      border: none;
+      box-shadow: 0 4px 16px 0 rgba(98, 0, 238, 0.12);
+      text-transform: capitalize;
+      font-weight: 600;
+
+      &:hover,
+      &:focus {
+        filter: brightness(1.06);
+        box-shadow: 0 6px 24px 0 rgba(98, 0, 238, 0.18);
+      }
+    }
+  }
+}
+
+// ===============================
+// Vuetify Skeleton Loader
+// ===============================
+.v-skeleton-loader {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+
+  .v-skeleton-loader__bone {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__text {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__avatar {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__image {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__card-heading,
+  .v-skeleton-loader__card-text,
+  .v-skeleton-loader__card-avatar,
+  .v-skeleton-loader__card-actions {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__article {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__divider {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__list-item {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__heading {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .v-skeleton-loader__content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+// ===============================
+// Form Field Styles
+// ===============================
+@each $variant in $custom-field-variants {
+  #{$variant} {
+    background-color: var(--color-bg) !important;
+  }
+}
+
+.v-field--variant-outlined {
+
+  .v-field__outline__start,
+  .v-field__outline__end {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+.v-field--center-affix {
+
+  .v-field__prepend,
+  .v-field__prepend-inner,
+  .v-field__append-inner,
+  .v-field__append {
+    color: rgba(0, 0, 0, 0.5) !important;
+    transition: color 0.22s cubic-bezier(0.5, 1.8, 0.5, 0.8);
+  }
+}
+
+// State: Focused
+.v-input--focused {
+  color: var(--color-primary) !important;
+
+  .v-field__overlay {
+    background: $color-primary-soft !important;
+  }
+
+  @each $variant in $custom-field-variants {
+    #{$variant} {
+
+      .v-field__outline__start,
+      .v-field__outline__end {
+        border-color: var(--color-primary) !important;
+      }
+
+      .v-field__outline__start {
+        border-width: 1px 0 1px 1px !important;
+      }
+
+      .v-field__outline__end {
+        border-width: 1px 1px 1px 0 !important;
+      }
+    }
+  }
+
+  .v-field__prepend,
+  .v-field__prepend-inner,
+  .v-field__append-inner,
+  .v-field__append {
+    color: var(--color-primary) !important;
+    transition: color 0.22s cubic-bezier(0.5, 1.8, 0.5, 0.8);
+  }
+}
+
+// State: Error
+.v-input--error {
+  color: var(--color-error) !important;
+
+  .v-field__overlay {
+    background: $color-error-soft !important;
+  }
+
+  @each $variant in $custom-field-variants {
+    #{$variant} {
+
+      .v-field__outline__start,
+      .v-field__outline__end {
+        border-color: var(--color-error) !important;
+      }
+    }
+  }
+
+  .v-field__prepend,
+  .v-field__prepend-inner,
+  .v-field__append-inner,
+  .v-field__append {
+    color: var(--color-error) !important;
+    transition: color 0.22s cubic-bezier(0.5, 1.8, 0.5, 0.8);
+  }
+
+  input::placeholder {
+    color: var(--color-error) !important;
+    opacity: 1 !important;
+  }
+}
+
+
+// ===============================
+// Table Styles (Vuetify + Native)
+// ===============================
+// Soften all table borders & hover backgrounds
+
+.v-table,
+table {
+
+  thead th,
+  tbody td,
+  tfoot td,
+  tr,
+  & {
+    border-color: #efeaf8 !important;
+  }
+
+  tr {
+    border-bottom: 1px solid #efeaf8 !important;
+  }
+
+  .th,
+  thead th {
+    font-size: var(--text-body-2) !important;
+    font-weight: 600 !important;
+  }
+
+  thead th {
+    box-shadow: none !important;
+    background: #fafafd !important;
+  }
+
+  &.v-table--hover {
+    tbody tr:hover {
+      background: #f6f3fa !important;
+      transition: background 0.18s;
+    }
+  }
+}
+
+// ===============================
+// App Bar Styles
+// ===============================
+.nuxtstarter-appbar {
+  background: transparent !important;
+  transition: background 0.3s, box-shadow 0.2s;
+  box-shadow: none !important;
+
+  &.elevated {
+    background: #fff !important;
+    box-shadow: 0 4px 24px 0 rgba(98, 0, 238, 0.07) !important;
+  }
+
+  .nuxtstarter-menu-btn.v-btn--variant-flat {
+    background: var(--color-primary);
+    color: #fff !important;
+  }
+}
+
+// ===============================
+// Card Styles
+// ===============================
+.nuxtstarter-card {
+  // Base card container for nuxtstarter
+  background: var(--color-card-bg);
+  box-shadow: var(--color-shadow) !important;
+  transition: transform 0.13s, box-shadow 0.18s;
+  border: none;
+  @include card-radius;
+}
+
+.v-card--variant-outlined {
+  border-color: var(--color-border) !important;
+}
+
+// ===============================
+// Responsive Typography
+// ===============================
+@media (max-width: 768px) {
+
+  .text-h1,
+  .nuxtstarter-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .text-h2 {
+    font-size: 1.6rem;
+  }
+
+  .text-h4 {
+    font-size: 1.1rem;
+  }
+}
